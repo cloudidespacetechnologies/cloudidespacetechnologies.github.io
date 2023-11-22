@@ -4,7 +4,7 @@ import _thread
 import ota  # Asegúrate de tener este módulo
 
 # Constantes para la versión del firmware y la URL de actualización
-FIRMWARE_VERSION = 1.0  # Debe ser un float
+FIRMWARE_VERSION = 1.1  # Debe ser un float
 UPDATE_URL = "https://cloudidespacetechnologies.github.io/firmware_microPython.json"
 
 # Variables para el LED
