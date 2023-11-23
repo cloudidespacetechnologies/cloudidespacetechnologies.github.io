@@ -1,22 +1,23 @@
+
 import machine
 import time
 import _thread
 import ota  # Asegúrate de tener este módulo
 
 # Constantes para la versión del firmware y la URL de actualización
-FIRMWARE_VERSION = 1.1 # Debe ser un float
+FIRMWARE_VERSION = 1.0  # Debe ser un float
 UPDATE_URL = "https://cloudidespacetechnologies.github.io/firmware_microPython.json"
 
-# Variables para el LED
-current_led_pin = 16  # GPIO para el LED actual
+# Aqui va las Variables para el Controlar los componentes
+current_led_pin = 17  # GPIO para el LED actual
 led = machine.Pin(current_led_pin, machine.Pin.OUT)
 
 # Control para el bucle de parpadeo del LED
 stop_blinking = False
 
-def led_blinking_control():
+def Devices_control():
     """
-    Controla el parpadeo del LED. Si 'stop_blinking' es True, detiene el parpadeo.
+    Controla el funcionamiento del dispositivo.
     """
     global stop_blinking
     led.value(True)  # Enciende el LED inicialmente
@@ -35,14 +36,13 @@ def main():
 
      # Configura el pin antiguo del LED a bajo para apagarlo si es necesario
    # Lista de pines del firmware anterior para apagarlos si es necesario
-    old_pins = [18]  # Asegúrate de actualizar esta lista según sea necesario
+    old_pins = [16]  # Asegúrate de actualizar esta lista según sea necesario
     for pin_number in old_pins:
-        if current_led_pin != pin_number:  # Verifica si el pin actual es diferente al antiguo
-            old_led = machine.Pin(pin_number, machine.Pin.OUT)
-            old_led.value(False)  # Apaga el LED del pin antiguo
+      old_led = machine.Pin(pin_number, machine.Pin.OUT)
+      old_led.value(False)  # Apaga el LED del pin antiguo
 
     # Iniciar el parpadeo del LED en un nuevo hilo
-    _thread.start_new_thread(led_blinking_control, ())
+    _thread.start_new_thread(Devices_control, ())
 
     while True:
         # Verificar si hay actualizaciones disponibles
@@ -51,5 +51,5 @@ def main():
         time.sleep(60)
 
 # Punto de entrada del programa
-if __name__ == '__main__':
+if _name_ == '_main_':
     main()
