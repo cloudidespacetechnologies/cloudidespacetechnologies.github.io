@@ -5,7 +5,7 @@ import _thread
 import ota  # Asegúrate de tener este módulo
 
 # Constantes para la versión del firmware y la URL de actualización
-FIRMWARE_VERSION = 1.1  # Debe ser un float
+FIRMWARE_VERSION = 1.0  # Debe ser un float
 UPDATE_URL = "https://cloudidespacetechnologies.github.io/firmware_microPython.json"
 
 # Aqui va las Variables para el Controlar los componentes
@@ -16,16 +16,18 @@ relay = machine.Pin(RELAY_PIN, machine.Pin.OUT)
 
 
 
+
 def Devices_control():
     """
     Controla el funcionamiento del dispositivo.
     """
-     while True:
+    while True:
         # Lógica para controlar el relé
         relay.value(1)  # Encender relé
         time.sleep(2)   # Mantener encendido durante 2 segundos
         relay.value(0)  # Apagar relé
         time.sleep(2)   # Esperar 2 segundos antes de encender nuevamente
+
 
 
 def main():
