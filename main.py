@@ -10,7 +10,7 @@ UPDATE_URL = "https://cloudidespacetechnologies.github.io/firmware_microPython.j
 
 # Aqui va las Variables para el Controlar los componentes
 # Pin para el relé
-RELAY_PIN = 4  # Ejemplo, ajusta según tu conexión
+RELAY_PIN = 16  # Ejemplo, ajusta según tu conexión
 # Configurar el pin del relé
 relay = machine.Pin(RELAY_PIN, machine.Pin.OUT)
 
