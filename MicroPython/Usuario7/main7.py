@@ -6,7 +6,7 @@ import ota  # Asegúrate de tener este módulo
 
 # Constantes para la versión del firmware y la URL de actualización
 FIRMWARE_VERSION = 1.1  # Debe ser un float
-UPDATE_URL = "https://cloudidespacetechnologies.github.io/firmware_microPython.json"
+UPDATE_URL = "https://cloudidespacetechnologies.github.io/MicroPython/Usuario7/esp32_micropython_7.json"
 
 # Aqui va las Variables para el Controlar los componentes
 # Pin para el relé
