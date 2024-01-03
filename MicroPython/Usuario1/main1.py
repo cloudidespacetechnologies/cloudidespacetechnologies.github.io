@@ -5,14 +5,14 @@ import _thread
 import ota  # Asegúrate de tener este módulo
 
 # Constantes para la versión del firmware y la URL de actualización
-FIRMWARE_VERSION = 1.0  # Debe ser un float
+FIRMWARE_VERSION = 1.1  # Debe ser un float
 UPDATE_URL = "https://cloudidespacetechnologies.github.io/MicroPython/Usuario1/esp32_micropython_1.json"
 
 # Aqui va las Variables para el Controlar los componentes
-# Pin para el relé
-RELAY_PIN = 16  # Ejemplo, ajusta según tu conexión
-# Configurar el pin del relé
-relay = machine.Pin(RELAY_PIN, machine.Pin.OUT)
+# Pin para el led
+RELAY_PIN = 17  # Ejemplo, ajusta según tu conexión
+# Configurar el pin del led
+led = machine.Pin(RELAY_PIN, machine.Pin.OUT)
 
 
 
@@ -22,11 +22,8 @@ def Devices_control():
     Controla el funcionamiento del dispositivo.
     """
     while True:
-        # Lógica para controlar el relé
-        relay.value(1)  # Encender relé
-        time.sleep(5)   # Mantener encendido durante 2 segundos
-        relay.value(0)  # Apagar relé
-        time.sleep(5)   # Esperar 2 segundos antes de encender nuevamente
+      led.value(True)  # Enciende el LED constantemente
+    
 
 
 def main():
@@ -37,7 +34,7 @@ def main():
 
      # Configura el pin antiguo del LED a bajo para apagarlo si es necesario
    # Lista de pines del firmware anterior para apagarlos si es necesario
-    old_pins = [17]  # Asegúrate de actualizar esta lista según sea necesario
+    old_pins = [16]  # Asegúrate de actualizar esta lista según sea necesario
     for pin_number in old_pins:
       old_led = machine.Pin(pin_number, machine.Pin.OUT)
       old_led.value(False)  # Apaga el LED del pin antiguo
