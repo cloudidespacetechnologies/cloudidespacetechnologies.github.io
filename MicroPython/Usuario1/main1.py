@@ -5,7 +5,7 @@ import _thread
 import ota  # Asegúrate de tener este módulo
 
 # Constantes para la versión del firmware y la URL de actualización
-FIRMWARE_VERSION = 1.0  # Debe ser un float
+FIRMWARE_VERSION = 1.1  # Debe ser un float
 UPDATE_URL = "https://cloudidespacetechnologies.github.io/MicroPython/Usuario1/esp32_micropython_1.json"
 
 # Aqui va las Variables para el Controlar los componentes
@@ -22,10 +22,9 @@ def Devices_control():
     while True:
         # Lógica para controlar el relé
         relay.value(1)  # Encender relé
-        time.sleep(5)   # Mantener encendido durante 2 segundos
+        time.sleep(5)   # Mantener encendido durante 5 segundos
         relay.value(0)  # Apagar relé
-        time.sleep(5)   # Esperar 2 segundos antes de encender nuevamente
-
+        time.sleep(5)   # Esperar  segundos antes de encender nuevamente
 
 
 def main():
